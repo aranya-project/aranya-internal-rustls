@@ -13,7 +13,7 @@ autobenches = false
 publish = false
 
 [dependencies]
-rustls = { version = "0.23.22", features = ["aws_lc_rs", "prefer-post-quantum"], path = "../rustls" }
+rustls = { features = ["aws_lc_rs", "prefer-post-quantum"], path = "../rustls", package = "aranya-internal-rustls" }
 
 [dev-dependencies]
 criterion = "0.5"

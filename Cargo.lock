@@ -139,6 +139,37 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dcfed56ad506cb2c684a14971b8861fdc3baaaae314b9e5f9bb532cbe3ba7a4f"
 
 [[package]]
+name = "aranya-internal-rustls"
+version = "0.23.26-psk.1"
+dependencies = [
+ "aws-lc-rs",
+ "base64",
+ "bencher",
+ "brotli",
+ "brotli-decompressor",
+ "env_logger",
+ "hashbrown",
+ "hex",
+ "log",
+ "macro_rules_attribute",
+ "num-bigint",
+ "once_cell",
+ "rcgen",
+ "ring",
+ "rustls-pki-types",
+ "rustls-webpki",
+ "rustversion",
+ "serde",
+ "serde_json",
+ "subtle",
+ "time",
+ "webpki-roots",
+ "x509-parser",
+ "zeroize",
+ "zlib-rs",
+]
+
+[[package]]
 name = "asn1"
 version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -488,10 +519,10 @@ dependencies = [
 name = "bogo"
 version = "0.1.0"
 dependencies = [
+ "aranya-internal-rustls",
  "base64",
  "env_logger",
  "nix",
- "rustls 0.23.26",
  "rustls-post-quantum",
 ]
 
@@ -1367,7 +1398,7 @@ dependencies = [
  "once_cell",
  "rand 0.9.0",
  "ring",
- "rustls 0.23.25",
+ "rustls",
  "thiserror 2.0.12",
  "tinyvec",
  "tokio",
@@ -1392,7 +1423,7 @@ dependencies = [
  "parking_lot",
  "rand 0.9.0",
  "resolv-conf",
- "rustls 0.23.25",
+ "rustls",
  "smallvec",
  "thiserror 2.0.12",
  "tokio",
@@ -2624,42 +2655,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "rustls"
-version = "0.23.26"
-dependencies = [
- "aws-lc-rs",
- "base64",
- "bencher",
- "brotli",
- "brotli-decompressor",
- "env_logger",
- "hashbrown",
- "hex",
- "log",
- "macro_rules_attribute",
- "num-bigint",
- "once_cell",
- "rcgen",
- "ring",
- "rustls-pki-types",
- "rustls-webpki",
- "rustversion",
- "serde",
- "serde_json",
- "subtle",
- "time",
- "webpki-roots",
- "x509-parser",
- "zeroize",
- "zlib-rs",
-]
-
-[[package]]
 name = "rustls-bench"
 version = "0.1.0"
 dependencies = [
+ "aranya-internal-rustls",
  "clap",
- "rustls 0.23.26",
  "rustls-post-quantum",
  "tikv-jemallocator",
 ]
@@ -2669,6 +2669,7 @@ name = "rustls-ci-bench"
 version = "0.0.1"
 dependencies = [
  "anyhow",
+ "aranya-internal-rustls",
  "async-trait",
  "byteorder",
  "clap",
@@ -2676,7 +2677,6 @@ dependencies = [
  "fxhash",
  "itertools 0.14.0",
  "rayon",
- "rustls 0.23.26",
  "tikv-jemallocator",
 ]
 
@@ -2684,10 +2684,10 @@ dependencies = [
 name = "rustls-connect-tests"
 version = "0.0.1"
 dependencies = [
+ "aranya-internal-rustls",
  "hickory-resolver",
  "regex",
  "ring",
- "rustls 0.23.26",
  "tokio",
 ]
 
@@ -2695,6 +2695,7 @@ dependencies = [
 name = "rustls-examples"
 version = "0.0.1"
 dependencies = [
+ "aranya-internal-rustls",
  "async-std",
  "clap",
  "env_logger",
@@ -2702,7 +2703,6 @@ dependencies = [
  "log",
  "mio",
  "rcgen",
- "rustls 0.23.26",
  "serde",
  "tokio",
  "webpki-roots",
@@ -2712,20 +2712,20 @@ dependencies = [
 name = "rustls-fuzzing-provider"
 version = "0.1.0"
 dependencies = [
+ "aranya-internal-rustls",
  "env_logger",
- "rustls 0.23.26",
 ]
 
 [[package]]
 name = "rustls-openssl-tests"
 version = "0.0.1"
 dependencies = [
+ "aranya-internal-rustls",
  "asn1",
  "base64",
  "num-bigint",
  "once_cell",
  "openssl",
- "rustls 0.23.26",
 ]
 
 [[package]]
@@ -2738,9 +2738,9 @@ checksum = "917ce264624a4b4db1c364dcc35bfca9ded014d0a958cd47ad3e960e988ea51c"
 name = "rustls-post-quantum"
 version = "0.2.2"
 dependencies = [
+ "aranya-internal-rustls",
  "criterion",
  "env_logger",
- "rustls 0.23.26",
  "webpki-roots",
 ]
 
@@ -2748,6 +2748,7 @@ dependencies = [
 name = "rustls-provider-example"
 version = "0.0.1"
 dependencies = [
+ "aranya-internal-rustls",
  "chacha20poly1305",
  "der",
  "ecdsa",
@@ -2761,7 +2762,6 @@ dependencies = [
  "rand_core 0.6.4",
  "rcgen",
  "rsa",
- "rustls 0.23.26",
  "sha2",
  "signature",
  "webpki-roots",
@@ -2772,8 +2772,8 @@ dependencies = [
 name = "rustls-provider-test"
 version = "0.1.0"
 dependencies = [
+ "aranya-internal-rustls",
  "hex",
- "rustls 0.23.26",
  "rustls-provider-example",
  "serde",
  "serde_json",
@@ -3179,7 +3179,7 @@ version = "0.26.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8e727b36a1a0e8b74c376ac2211e40c2c8af09fb4013c60d910495810f008e9b"
 dependencies = [
- "rustls 0.23.25",
+ "rustls",
  "tokio",
 ]
 

@@ -6,7 +6,7 @@ publish = false
 
 [dependencies]
 clap = { workspace = true }
-rustls = { path = "../rustls" }
+rustls = { path = "../rustls", package = "aranya-internal-rustls" }
 rustls-post-quantum = { path = "../rustls-post-quantum", optional = true }
 
 [features]
