@@ -53,22 +53,3 @@ jobs:
         if: success() && steps.tag.outcome == 'success'
         run: |
           cargo release push -v --execute --no-confirm
-
-      - name: Version
-        if: success()
-        run: |
-          echo "VERSION=$(cargo metadata --format-version=1 --no-deps | jq --raw-output '.packages[0].version')" >> $GITHUB_OUTPUT
-        id: version
-
-    outputs:
-      tag: v${{ steps.version.outputs.VERSION }}
-      outcome: ${{ steps.push.outcome }}
-
-  publish:
-    needs:
-      - tag
-    if: needs.tag.outputs.outcome == 'success'
-    uses: ./.github/workflows/publish.yml
-    with:
-      workflow: publish
-      tag: ${{ needs.tag.outputs.tag }}
