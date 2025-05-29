@@ -10,6 +10,7 @@ homepage = "https://github.com/rustls/rustls"
 repository = "https://github.com/rustls/rustls"
 categories = ["network-programming", "cryptography"]
 autobenches = false
+publish = false
 
 [dependencies]
 rustls = { version = "0.23.22", features = ["aws_lc_rs", "prefer-post-quantum"], path = "../rustls" }
