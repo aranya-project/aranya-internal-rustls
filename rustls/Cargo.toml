@@ -1,13 +1,12 @@
 [package]
-name = "rustls"
-version = "0.23.26"
+name = "aranya-internal-rustls"
+version = "0.23.26-psk.1"
 edition = "2021"
 rust-version = "1.71"
 license = "Apache-2.0 OR ISC OR MIT"
 readme = "../README.md"
-description = "Rustls is a modern TLS library written in Rust."
-homepage = "https://github.com/rustls/rustls"
-repository = "https://github.com/rustls/rustls"
+description = "Fork of rustls with PSK support for internal usage."
+repository = "https://github.com/aranya-project/aranya-internal-rustls"
 categories = ["network-programming", "cryptography"]
 autobenches = false
 autotests = false
