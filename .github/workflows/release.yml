@@ -26,8 +26,6 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
-      - uses: ./.github/actions/setup
-
       - name: Install cargo-release
         uses: aranya-project/install-action@main
         with:
