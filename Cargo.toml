@@ -96,3 +96,6 @@ zlib-rs = "0.5"
 [profile.bench]
 codegen-units = 1
 lto = true
+
+[workspace.metadata.release]
+tag-message = ""
